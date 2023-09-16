@@ -5,11 +5,14 @@ interface CardProps {
    number: number;
 }
 
-export const Card = ({ name }: CardProps) => {
+export const Card = ({ name, month, year, number }: CardProps) => {
    return (
       <div>
          <div className='card'>
-            <p>{name}</p>
+            <p>{name !== "" ? name : "JANE APPLESEED"}</p>
+            <p>{month > 0 ? month : "00"}</p>
+            <p>{year > 0 ? year : "00"}</p>
+            <p>{number > 0 ? number : "1111 2233 4499"}</p>
          </div>
       </div>
    );
