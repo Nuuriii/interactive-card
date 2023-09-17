@@ -65,8 +65,9 @@ export const Input = ({
     <Wrapper>
       <Form action=''>
         <UserInformation>
-          <label htmlFor=''>CARDHOLDER NAME</label>
+          <label htmlFor='name'>CARDHOLDER NAME</label>
           <InputName
+            id='name'
             type='text'
             placeholder='e.g Jane Appleseed'
             value={inputName}
@@ -74,8 +75,9 @@ export const Input = ({
           />
         </UserInformation>
         <UserInformation>
-          <label htmlFor=''>CARD NUMBER</label>
+          <label htmlFor='number'>CARD NUMBER</label>
           <InputNumber
+            id='number'
             type='text'
             placeholder='e.g 1234 5678 9123 0000'
             value={inputNumber > 0 ? inputNumber : ''}
@@ -85,15 +87,20 @@ export const Input = ({
 
         <DateAndCvc>
           <ExpDate>
-            <label htmlFor=''>EXP. DATE (MM/YY)</label>
+            <p>
+              EXP. DATE (<label htmlFor='date'>MM</label>/
+              <label htmlFor='year'>YY</label>)
+            </p>
             <MonthAndYear>
               <InputMonth
+                id='date'
                 type='text'
                 placeholder='MM'
                 value={inputMonth > 0 ? inputMonth : ''}
                 onChange={handleMonth}
               />
               <InputYear
+                id='year'
                 type='text'
                 placeholder='YY'
                 value={inputYear > 0 ? inputYear : ''}
@@ -102,8 +109,9 @@ export const Input = ({
             </MonthAndYear>
           </ExpDate>
           <Cvc>
-            <label htmlFor=''>CVC</label>
+            <label htmlFor='cvc'>CVC</label>
             <InputCvc
+              id='cvc'
               type='text'
               placeholder='e.g. 123'
               value={cvcCode > 0 ? cvcCode : ''}

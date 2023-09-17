@@ -71,8 +71,10 @@ export const ExpDate = styled.div`
   display: flex;
   width: 60%;
   flex-direction: column;
-  label {
+  p {
     margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: hsl(278, 68%, 11%);
   }
 `;
 
@@ -124,6 +126,8 @@ export const Cvc = styled.div`
   flex-direction: column;
   label {
     margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: hsl(278, 68%, 11%);
   }
 `;
 
