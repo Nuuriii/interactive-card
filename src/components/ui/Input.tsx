@@ -1,5 +1,16 @@
 import { useState } from 'react';
-import { Wrapper, Form, UserInformation } from './Input.style';
+import {
+  Wrapper,
+  Form,
+  UserInformation,
+  DateAndCvc,
+  ExpDate,
+  MonthAndYear,
+  InputMonth,
+  InputYear,
+  Cvc,
+  InputCvc,
+} from './Input.style';
 
 interface InputProps {
   userName: (name: string) => void;
@@ -70,34 +81,34 @@ export const Input = ({
           />
         </UserInformation>
 
-        <div>
-          <div>
+        <DateAndCvc>
+          <ExpDate>
             <label htmlFor=''>EXP. DATE (MM/YY)</label>
-            <div>
-              <input
+            <MonthAndYear>
+              <InputMonth
                 type='text'
                 placeholder='MM'
                 value={inputMonth > 0 ? inputMonth : ''}
                 onChange={handleMonth}
               />
-              <input
+              <InputYear
                 type='text'
                 placeholder='YY'
                 value={inputYear > 0 ? inputYear : ''}
                 onChange={handleYear}
               />
-            </div>
-          </div>
-          <div>
+            </MonthAndYear>
+          </ExpDate>
+          <Cvc>
             <label htmlFor=''>CVC</label>
-            <input
+            <InputCvc
               type='text'
               placeholder='e.g. 123'
               value={cvcCode > 0 ? cvcCode : ''}
               onChange={handleCvc}
             />
-          </div>
-        </div>
+          </Cvc>
+        </DateAndCvc>
       </Form>
     </Wrapper>
   );
