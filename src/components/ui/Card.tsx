@@ -26,7 +26,7 @@ export const Card = ({ name, month, year, number, cvc }: CardProps) => {
         <UserInformation>
           <p>{number > 0 ? number : '0000 0000 0000 0000'}</p>
           <OtherInformation>
-            <p>{name !== '' ? name : 'JANE APPLESEED'}</p>
+            <p>{name !== '' ? name.toUpperCase() : 'JANE APPLESEED'}</p>
             <p>
               {month > 0 ? month : '00'}/{year > 0 ? year : '00'}
             </p>
