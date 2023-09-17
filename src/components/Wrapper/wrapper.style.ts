@@ -10,6 +10,7 @@ export const Container = styled.div`
 export const Wrapper = styled.div`
   display: flex;
   height: 100vh;
+  width: 100%;
   align-items: center;
   flex-direction: column;
 `;

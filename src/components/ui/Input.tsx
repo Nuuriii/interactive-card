@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Wrapper, Form, UserInformation } from './Input.style';
 
 interface InputProps {
   userName: (name: string) => void;
@@ -41,7 +42,6 @@ export const Input = ({
     setInputNumber(parseFloat(number));
     userNumber(parseFloat(number));
   };
-
   const handleCvc = (event: React.ChangeEvent<HTMLInputElement>) => {
     const cvc = event.target.value;
     setCvcCode(parseFloat(cvc));
@@ -49,37 +49,56 @@ export const Input = ({
   };
 
   return (
-    <div>
-      <input
-        type='text'
-        placeholder='e.g Jane Appleseed'
-        value={inputName}
-        onChange={handleName}
-      />
-      <input
-        type='text'
-        placeholder='MM'
-        value={inputMonth > 0 ? inputMonth : ''}
-        onChange={handleMonth}
-      />
-      <input
-        type='text'
-        placeholder='YY'
-        value={inputYear > 0 ? inputYear : ''}
-        onChange={handleYear}
-      />
-      <input
-        type='text'
-        placeholder='e.g 1234 5678 9123 0000'
-        value={inputNumber > 0 ? inputNumber : ''}
-        onChange={handleNumber}
-      />
-      <input
-        type='text'
-        placeholder='e.g. 123'
-        value={cvcCode > 0 ? cvcCode : ''}
-        onChange={handleCvc}
-      />
-    </div>
+    <Wrapper>
+      <Form action=''>
+        <UserInformation>
+          <label htmlFor=''>CARDHOLDER NAME</label>
+          <input
+            type='text'
+            placeholder='e.g Jane Appleseed'
+            value={inputName}
+            onChange={handleName}
+          />
+        </UserInformation>
+        <UserInformation>
+          <label htmlFor=''>CARD NUMBER</label>
+          <input
+            type='text'
+            placeholder='e.g 1234 5678 9123 0000'
+            value={inputNumber > 0 ? inputNumber : ''}
+            onChange={handleNumber}
+          />
+        </UserInformation>
+
+        <div>
+          <div>
+            <label htmlFor=''>EXP. DATE (MM/YY)</label>
+            <div>
+              <input
+                type='text'
+                placeholder='MM'
+                value={inputMonth > 0 ? inputMonth : ''}
+                onChange={handleMonth}
+              />
+              <input
+                type='text'
+                placeholder='YY'
+                value={inputYear > 0 ? inputYear : ''}
+                onChange={handleYear}
+              />
+            </div>
+          </div>
+          <div>
+            <label htmlFor=''>CVC</label>
+            <input
+              type='text'
+              placeholder='e.g. 123'
+              value={cvcCode > 0 ? cvcCode : ''}
+              onChange={handleCvc}
+            />
+          </div>
+        </div>
+      </Form>
+    </Wrapper>
   );
 };
