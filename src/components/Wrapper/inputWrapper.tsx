@@ -22,8 +22,8 @@ export const InputWrapper = () => {
   const handleInputNumber = (number: number) => {
     setDisplayNumber(number);
   };
-  const handleInputCvc = (number: number) => {
-    setDisplayCvc(number);
+  const handleInputCvc = (cvc: number) => {
+    setDisplayCvc(cvc);
   };
 
   return (
