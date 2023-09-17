@@ -139,6 +139,7 @@ export const InputCvc = styled.input`
   outline: 2px solid hsl(270, 3%, 87%);
   font-weight: 500;
   color: hsl(278, 68%, 11%);
+
   &::placeholder {
     font-family: SpaceGrotesk, serif;
     font-weight: 900;
@@ -146,5 +147,23 @@ export const InputCvc = styled.input`
   }
   &:focus {
     outline: 2px solid hsl(278, 68%, 11%);
+  }
+`;
+export const Button = styled.button`
+  border: none;
+  font-weight: 500;
+  font-size: 1rem;
+  border-radius: 0.4rem;
+  padding: 0.9rem 0;
+  margin-top: 2rem;
+  color: hsl(0, 0%, 100%);
+  text-align: center;
+  cursor: pointer;
+  background-color: hsl(278, 68%, 11%);
+  &:hover {
+    background-color: hsl(278, 68%, 17%);
+  }
+  &:active {
+    transform: scale(0.95);
   }
 `;

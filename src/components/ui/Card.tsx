@@ -12,7 +12,7 @@ interface CardProps {
   name: string;
   month: number;
   year: number;
-  number: number;
+  number: string;
   cvc: number;
 }
 
@@ -24,7 +24,7 @@ export const Card = ({ name, month, year, number, cvc }: CardProps) => {
           <img src={CardLogo} alt='' />
         </ImageWrapper>
         <UserInformation>
-          <p>{number > 0 ? number : '0000 0000 0000 0000'}</p>
+          <p>{number === 'NaN' ? '0000 0000 0000 0000' : number}</p>
           <OtherInformation>
             <p>{name !== '' ? name.toUpperCase() : 'JANE APPLESEED'}</p>
             <p>

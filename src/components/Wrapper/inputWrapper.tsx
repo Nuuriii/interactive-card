@@ -7,7 +7,7 @@ export const InputWrapper = () => {
   const [displayName, setDisplayName] = useState('');
   const [displayMonth, setDisplayMonth] = useState(0);
   const [displayYear, setDisplayYear] = useState(0);
-  const [displayNumber, setDisplayNumber] = useState(0);
+  const [displayNumber, setDisplayNumber] = useState('');
   const [displayCvc, setDisplayCvc] = useState(0);
 
   const handleInputName = (name: string) => {
@@ -20,7 +20,16 @@ export const InputWrapper = () => {
     setDisplayYear(year);
   };
   const handleInputNumber = (number: number) => {
-    setDisplayNumber(number);
+    const toStr = number.toString();
+    let formattedCardNumber = '';
+    for (let i = 0; i < toStr.length; i++) {
+      formattedCardNumber += toStr[i];
+      if ((i + 1) % 4 === 0 && i !== toStr.length - 1) {
+        formattedCardNumber += ' ';
+      }
+    }
+
+    setDisplayNumber(formattedCardNumber);
   };
   const handleInputCvc = (cvc: number) => {
     setDisplayCvc(cvc);

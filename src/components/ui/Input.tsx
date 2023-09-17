@@ -12,6 +12,7 @@ import {
   InputYear,
   Cvc,
   InputCvc,
+  Button,
 } from './Input.style';
 
 interface InputProps {
@@ -119,6 +120,7 @@ export const Input = ({
             />
           </Cvc>
         </DateAndCvc>
+        <Button>Confirm</Button>
       </Form>
     </Wrapper>
   );
