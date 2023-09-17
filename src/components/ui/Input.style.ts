@@ -17,6 +17,28 @@ export const Form = styled.form`
 export const UserInformation = styled.div`
   display: flex;
   flex-direction: column;
+  margin-bottom: 1rem;
+  label {
+    margin-bottom: 0.5rem;
+  }
+`;
+
+export const InputName = styled.input`
+  padding: 0.5rem 0rem 0.5rem 0.3rem;
+  border: none;
+  margin-right: 0.4rem;
+  outline: 1px solid black;
+  border-radius: 0.3rem;
+  width: 100%;
+`;
+
+export const InputNumber = styled.input`
+  padding: 0.5rem 0rem 0.5rem 0.3rem;
+  border: none;
+  margin-right: 0.4rem;
+  outline: 1px solid black;
+  border-radius: 0.3rem;
+  width: 100%;
 `;
 
 export const DateAndCvc = styled.div`

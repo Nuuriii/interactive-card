@@ -3,6 +3,8 @@ import {
   Wrapper,
   Form,
   UserInformation,
+  InputName,
+  InputNumber,
   DateAndCvc,
   ExpDate,
   MonthAndYear,
@@ -64,7 +66,7 @@ export const Input = ({
       <Form action=''>
         <UserInformation>
           <label htmlFor=''>CARDHOLDER NAME</label>
-          <input
+          <InputName
             type='text'
             placeholder='e.g Jane Appleseed'
             value={inputName}
@@ -73,7 +75,7 @@ export const Input = ({
         </UserInformation>
         <UserInformation>
           <label htmlFor=''>CARD NUMBER</label>
-          <input
+          <InputNumber
             type='text'
             placeholder='e.g 1234 5678 9123 0000'
             value={inputNumber > 0 ? inputNumber : ''}
