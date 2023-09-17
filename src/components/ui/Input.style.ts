@@ -20,25 +20,47 @@ export const UserInformation = styled.div`
   margin-bottom: 1rem;
   label {
     margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: hsl(278, 68%, 11%);
   }
 `;
 
 export const InputName = styled.input`
-  padding: 0.5rem 0rem 0.5rem 0.3rem;
+  padding: 0.5rem 0rem 0.5rem 0.7rem;
   border: none;
   margin-right: 0.4rem;
-  outline: 1px solid black;
+  outline: 2px solid hsl(270, 3%, 87%);
+  font-weight: 500;
+  color: hsl(278, 68%, 11%);
   border-radius: 0.3rem;
   width: 100%;
+  &::placeholder {
+    font-family: SpaceGrotesk, serif;
+    font-weight: 900;
+    color: hsl(279, 6%, 55%);
+  }
+  &:focus {
+    outline: 2px solid hsl(278, 68%, 11%);
+  }
 `;
 
 export const InputNumber = styled.input`
-  padding: 0.5rem 0rem 0.5rem 0.3rem;
+  padding: 0.5rem 0rem 0.5rem 0.7rem;
   border: none;
   margin-right: 0.4rem;
-  outline: 1px solid black;
+  outline: 2px solid hsl(270, 3%, 87%);
+  font-weight: 500;
+  color: hsl(278, 68%, 11%);
   border-radius: 0.3rem;
   width: 100%;
+  &::placeholder {
+    font-family: SpaceGrotesk, serif;
+    font-weight: 900;
+    color: hsl(279, 6%, 55%);
+  }
+  &:focus {
+    outline: 2px solid hsl(278, 68%, 11%);
+  }
 `;
 
 export const DateAndCvc = styled.div`
@@ -62,18 +84,38 @@ export const MonthAndYear = styled.div`
 export const InputMonth = styled.input`
   padding: 0.5rem 0rem 0.5rem 0.3rem;
   border: none;
+  outline: 2px solid hsl(270, 3%, 87%);
+  font-weight: 500;
+  color: hsl(278, 68%, 11%);
   margin-right: 0.4rem;
-  outline: 1px solid black;
   border-radius: 0.3rem;
   width: 50%;
+  &::placeholder {
+    font-family: SpaceGrotesk, serif;
+    font-weight: 900;
+    color: hsl(279, 6%, 55%);
+  }
+  &:focus {
+    outline: 2px solid hsl(278, 68%, 11%);
+  }
 `;
 
 export const InputYear = styled.input`
   padding: 0.5rem 0rem 0.5rem 0.3rem;
   border: none;
-  outline: 1px solid black;
   border-radius: 0.3rem;
   width: 50%;
+  outline: 2px solid hsl(270, 3%, 87%);
+  font-weight: 500;
+  color: hsl(278, 68%, 11%);
+  &::placeholder {
+    font-family: SpaceGrotesk, serif;
+    font-weight: 900;
+    color: hsl(279, 6%, 55%);
+  }
+  &:focus {
+    outline: 2px solid hsl(278, 68%, 11%);
+  }
 `;
 
 export const Cvc = styled.div`
@@ -88,7 +130,17 @@ export const Cvc = styled.div`
 export const InputCvc = styled.input`
   padding: 0.5rem 0rem 0.5rem 0.3rem;
   border: none;
-  outline: 1px solid black;
   border-radius: 0.3rem;
   width: 100%;
+  outline: 2px solid hsl(270, 3%, 87%);
+  font-weight: 500;
+  color: hsl(278, 68%, 11%);
+  &::placeholder {
+    font-family: SpaceGrotesk, serif;
+    font-weight: 900;
+    color: hsl(279, 6%, 55%);
+  }
+  &:focus {
+    outline: 2px solid hsl(278, 68%, 11%);
+  }
 `;
