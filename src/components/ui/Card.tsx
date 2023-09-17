@@ -24,7 +24,9 @@ export const Card = ({ name, month, year, number, cvc }: CardProps) => {
           <img src={CardLogo} alt='' />
         </ImageWrapper>
         <UserInformation>
-          <p>{number === 'NaN' ? '0000 0000 0000 0000' : number}</p>
+          <p>
+            {number === 'NaN' || number === '' ? '0000 0000 0000 0000' : number}
+          </p>
           <OtherInformation>
             <p>{name !== '' ? name.toUpperCase() : 'JANE APPLESEED'}</p>
             <p>

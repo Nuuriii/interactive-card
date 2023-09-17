@@ -53,7 +53,7 @@ export const Input = ({
   };
   const handleNumber = (event: React.ChangeEvent<HTMLInputElement>) => {
     const number = event.target.value;
-    setInputNumber(parseFloat(number));
+    setInputNumber(Number(number));
     userNumber(parseFloat(number));
   };
   const handleCvc = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -84,6 +84,11 @@ export const Input = ({
             value={inputNumber > 0 ? inputNumber : ''}
             onChange={handleNumber}
           />
+          {Number.isNaN(inputNumber) ? (
+            <p>Tolong ketikan angka jangan huruf</p>
+          ) : (
+            <p></p>
+          )}
         </UserInformation>
 
         <DateAndCvc>
