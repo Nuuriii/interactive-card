@@ -5,6 +5,7 @@ interface InputProps {
    monthExp: (month: number) => void;
    yearExp: (year: number) => void;
    userNumber: (number: number) => void;
+   cvcUser: (number: number) => void;
 }
 
 export const Input = ({
@@ -12,11 +13,13 @@ export const Input = ({
    monthExp,
    yearExp,
    userNumber,
+   cvcUser,
 }: InputProps) => {
    const [inputName, setInputName] = useState("");
    const [inputMonth, setInputMonth] = useState(0);
    const [inputYear, setInputYear] = useState(0);
    const [inputNumber, setInputNumber] = useState(0);
+   const [cvcCode, setCvcCode] = useState(0);
 
    const handleName = (event: React.ChangeEvent<HTMLInputElement>) => {
       const name = event.target.value;
@@ -39,11 +42,17 @@ export const Input = ({
       userNumber(parseFloat(number));
    };
 
+   const handleCvc = (event: React.ChangeEvent<HTMLInputElement>) => {
+      const cvc = event.target.value;
+      setCvcCode(parseFloat(cvc));
+      cvcUser(parseFloat(cvc));
+   };
+
    return (
       <div>
          <input
             type='text'
-            placeholder='Masukkan nama kamu'
+            placeholder='e.g Jane Appleseed'
             value={inputName}
             onChange={handleName}
          />
@@ -61,9 +70,15 @@ export const Input = ({
          />
          <input
             type='text'
-            placeholder='1234 5678 9999'
+            placeholder='e.g 1234 5678 9123 0000'
             value={inputNumber > 0 ? inputNumber : ""}
             onChange={handleNumber}
+         />
+         <input
+            type='text'
+            placeholder='e.g. 123'
+            value={cvcCode > 0 ? cvcCode : ""}
+            onChange={handleCvc}
          />
       </div>
    );

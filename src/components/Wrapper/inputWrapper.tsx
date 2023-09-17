@@ -7,11 +7,11 @@ export const InputWrapper = () => {
    const [displayMonth, setDisplayMonth] = useState(0);
    const [displayYear, setDisplayYear] = useState(0);
    const [displayNumber, setDisplayNumber] = useState(0);
+   const [displayCvc, setDisplayCvc] = useState(0);
 
    const handleInputName = (name: string) => {
       setDisplayName(name);
    };
-
    const handleInputMonth = (month: number) => {
       setDisplayMonth(month);
    };
@@ -20,6 +20,9 @@ export const InputWrapper = () => {
    };
    const handleInputNumber = (number: number) => {
       setDisplayNumber(number);
+   };
+   const handleInputCvc = (number: number) => {
+      setDisplayCvc(number);
    };
 
    return (
@@ -30,12 +33,14 @@ export const InputWrapper = () => {
             number={displayNumber}
             month={displayMonth}
             year={displayYear}
+            cvc={displayCvc}
          />
          <Input
             userName={handleInputName}
             userNumber={handleInputNumber}
             monthExp={handleInputMonth}
             yearExp={handleInputYear}
+            cvcUser={handleInputCvc}
          />
       </div>
    );
