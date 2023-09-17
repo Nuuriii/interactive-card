@@ -15,6 +15,10 @@ export const Wrapper = styled.div`
 export const FrontCard = styled.div`
   background-image: url(${BgFrontCard});
   z-index: 1;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
   background-size: cover;
   background-repeat: no-repeat;
   height: 10rem;
@@ -23,6 +27,26 @@ export const FrontCard = styled.div`
   position: absolute;
   width: 19rem;
   border-radius: 0.5rem;
+`;
+
+export const ImageWrapper = styled.div`
+  display: flex;
+  img {
+    height: 2rem;
+  }
+`;
+
+export const UserInformation = styled.div`
+  display: block;
+  color: #fff;
+  > p {
+    margin-bottom: 1rem;
+  }
+`;
+
+export const OtherInformation = styled.div`
+  display: flex;
+  justify-content: space-between;
 `;
 
 export const BackCard = styled.div`
