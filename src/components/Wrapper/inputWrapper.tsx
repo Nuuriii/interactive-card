@@ -25,17 +25,17 @@ export const InputWrapper = () => {
    return (
       <div className='App'>
          <h1>Interactive Card Form</h1>
-         <Input
-            userName={handleInputName}
-            userNumber={handleInputNumber}
-            monthExp={handleInputMonth}
-            yearExp={handleInputYear}
-         />
          <Card
             name={displayName}
             number={displayNumber}
             month={displayMonth}
             year={displayYear}
+         />
+         <Input
+            userName={handleInputName}
+            userNumber={handleInputNumber}
+            monthExp={handleInputMonth}
+            yearExp={handleInputYear}
          />
       </div>
    );
