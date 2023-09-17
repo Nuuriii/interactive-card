@@ -1,3 +1,5 @@
+import { Wrapper, FrontCard, BackCard } from './Card.style';
+
 interface CardProps {
   name: string;
   month: number;
@@ -8,14 +10,16 @@ interface CardProps {
 
 export const Card = ({ name, month, year, number, cvc }: CardProps) => {
   return (
-    <div>
-      <div className='card'>
+    <Wrapper>
+      <FrontCard>
         <p>{name !== '' ? name : 'JANE APPLESEED'}</p>
         <p>{month > 0 ? month : '00'}</p>
         <p>{year > 0 ? year : '00'}</p>
         <p>{number > 0 ? number : '0000 0000 0000 0000'}</p>
+      </FrontCard>
+      <BackCard>
         <p>{cvc > 0 ? cvc : '000'}</p>
-      </div>
-    </div>
+      </BackCard>
+    </Wrapper>
   );
 };
