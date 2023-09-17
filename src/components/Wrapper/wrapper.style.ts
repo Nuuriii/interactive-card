@@ -10,7 +10,6 @@ export const Container = styled.div`
 export const Wrapper = styled.div`
   display: flex;
   height: 100vh;
-  justify-content: space-between;
   align-items: center;
   flex-direction: column;
 `;
