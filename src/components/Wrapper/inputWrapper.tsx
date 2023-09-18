@@ -1,7 +1,7 @@
 import { useState } from 'react';
-import { Input } from '../ui/Input';
-import { Card } from '../ui/Card';
-import { Success } from '../ui/Success';
+import { Input } from '../input/Input';
+import { Card } from '../card/Card';
+import { Success } from '../successMessage/Success';
 import { Container, Wrapper } from './wrapper.style';
 
 export const InputWrapper = () => {
