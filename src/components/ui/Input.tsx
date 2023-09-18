@@ -13,6 +13,7 @@ import {
   Cvc,
   InputCvc,
   Button,
+  ErrorMessage,
 } from './Input.style';
 
 interface InputProps {
@@ -35,6 +36,7 @@ export const Input = ({
   const [inputYear, setInputYear] = useState(0);
   const [inputNumber, setInputNumber] = useState(0);
   const [cvcCode, setCvcCode] = useState(0);
+  const [isError, setIsError] = useState(false);
 
   const handleName = (event: React.ChangeEvent<HTMLInputElement>) => {
     const name = event.target.value;
@@ -62,6 +64,12 @@ export const Input = ({
     cvcUser(parseFloat(cvc));
   };
 
+  const checkError = () => {
+    Number.isNaN(inputNumber) || inputNumber === 0 || Number.isNaN(inputMonth)
+      ? setIsError(true)
+      : setIsError(false);
+  };
+
   return (
     <Wrapper>
       <Form action=''>
@@ -73,6 +81,7 @@ export const Input = ({
             placeholder='e.g Jane Appleseed'
             value={inputName}
             onChange={handleName}
+            required
           />
         </UserInformation>
         <UserInformation>
@@ -83,11 +92,15 @@ export const Input = ({
             placeholder='e.g 1234 5678 9123 0000'
             value={inputNumber > 0 ? inputNumber : ''}
             onChange={handleNumber}
+            required
+            $isError={isError}
           />
-          {Number.isNaN(inputNumber) ? (
-            <p>Tolong ketikan angka jangan huruf</p>
+          {isError === true && Number.isNaN(inputNumber) ? (
+            <ErrorMessage>Wrong format, numbers only</ErrorMessage>
+          ) : isError === true && inputNumber === 0 ? (
+            <ErrorMessage>Can't be blank</ErrorMessage>
           ) : (
-            <p></p>
+            ''
           )}
         </UserInformation>
 
@@ -98,20 +111,33 @@ export const Input = ({
               <label htmlFor='year'>YY</label>)
             </p>
             <MonthAndYear>
-              <InputMonth
-                id='date'
-                type='text'
-                placeholder='MM'
-                value={inputMonth > 0 ? inputMonth : ''}
-                onChange={handleMonth}
-              />
-              <InputYear
-                id='year'
-                type='text'
-                placeholder='YY'
-                value={inputYear > 0 ? inputYear : ''}
-                onChange={handleYear}
-              />
+              <div>
+                <InputMonth
+                  id='date'
+                  type='text'
+                  placeholder='MM'
+                  value={inputMonth > 0 ? inputMonth : ''}
+                  onChange={handleMonth}
+                  required
+                />
+                {isError === true && Number.isNaN(inputMonth) ? (
+                  <ErrorMessage>Wrong format, numbers only</ErrorMessage>
+                ) : isError === true && inputMonth === 0 ? (
+                  <ErrorMessage>Can't be blank</ErrorMessage>
+                ) : (
+                  ''
+                )}
+              </div>
+              <div>
+                <InputYear
+                  id='year'
+                  type='text'
+                  placeholder='YY'
+                  value={inputYear > 0 ? inputYear : ''}
+                  onChange={handleYear}
+                  required
+                />
+              </div>
             </MonthAndYear>
           </ExpDate>
           <Cvc>
@@ -122,10 +148,13 @@ export const Input = ({
               placeholder='e.g. 123'
               value={cvcCode > 0 ? cvcCode : ''}
               onChange={handleCvc}
+              required
             />
           </Cvc>
         </DateAndCvc>
-        <Button>Confirm</Button>
+        <Button type='submit' onClick={checkError}>
+          Confirm
+        </Button>
       </Form>
     </Wrapper>
   );

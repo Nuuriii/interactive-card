@@ -44,11 +44,12 @@ export const InputName = styled.input`
   }
 `;
 
-export const InputNumber = styled.input`
+export const InputNumber = styled.input<{ $isError: boolean }>`
   padding: 0.5rem 0rem 0.5rem 0.7rem;
   border: none;
   margin-right: 0.4rem;
-  outline: 2px solid hsl(270, 3%, 87%);
+  outline: 1px solid
+    ${(props) => (props.$isError ? 'hsl(0, 100%, 66%)' : 'hsl(270, 3%, 87%)')};
   font-weight: 500;
   color: hsl(278, 68%, 11%);
   border-radius: 0.3rem;
@@ -59,8 +60,16 @@ export const InputNumber = styled.input`
     color: hsl(279, 6%, 55%);
   }
   &:focus {
-    outline: 2px solid hsl(278, 68%, 11%);
+    outline: 2px solid
+      ${(props) =>
+        props.$isError ? 'hsl(0, 100%, 66%)' : 'hsl(278, 68%, 11%)'};
   }
+`;
+
+export const ErrorMessage = styled.p`
+  margin-top: 0.2rem;
+  color: hsl(0, 100%, 66%);
+  font-weight: 500;
 `;
 
 export const DateAndCvc = styled.div`
@@ -91,7 +100,7 @@ export const InputMonth = styled.input`
   color: hsl(278, 68%, 11%);
   margin-right: 0.4rem;
   border-radius: 0.3rem;
-  width: 50%;
+  width: 100%;
   &::placeholder {
     font-family: SpaceGrotesk, serif;
     font-weight: 900;
@@ -106,7 +115,7 @@ export const InputYear = styled.input`
   padding: 0.5rem 0rem 0.5rem 0.3rem;
   border: none;
   border-radius: 0.3rem;
-  width: 50%;
+  width: 100%;
   outline: 2px solid hsl(270, 3%, 87%);
   font-weight: 500;
   color: hsl(278, 68%, 11%);
