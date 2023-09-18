@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Input } from '../ui/Input';
 import { Card } from '../ui/Card';
+import { Success } from '../ui/Success';
 import { Container, Wrapper } from './wrapper.style';
 
 export const InputWrapper = () => {
@@ -9,6 +10,7 @@ export const InputWrapper = () => {
   const [displayYear, setDisplayYear] = useState('');
   const [displayNumber, setDisplayNumber] = useState('');
   const [displayCvc, setDisplayCvc] = useState('');
+  const [isSubmit, setIsSubmit] = useState(true);
 
   const handleInputName = (name: string) => {
     setDisplayName(name);
@@ -35,6 +37,12 @@ export const InputWrapper = () => {
     setDisplayCvc(cvc);
   };
 
+  const handleSubmit = (submit: boolean) => {
+    setIsSubmit(submit);
+  };
+
+  console.log(isSubmit);
+
   return (
     <Container>
       <Wrapper>
@@ -45,13 +53,18 @@ export const InputWrapper = () => {
           year={displayYear}
           cvc={displayCvc}
         />
-        <Input
-          userName={handleInputName}
-          userNumber={handleInputNumber}
-          monthExp={handleInputMonth}
-          yearExp={handleInputYear}
-          cvcUser={handleInputCvc}
-        />
+        {isSubmit === true ? (
+          <Input
+            userName={handleInputName}
+            userNumber={handleInputNumber}
+            monthExp={handleInputMonth}
+            yearExp={handleInputYear}
+            cvcUser={handleInputCvc}
+            errorCondition={handleSubmit}
+          />
+        ) : (
+          <Success />
+        )}
       </Wrapper>
     </Container>
   );

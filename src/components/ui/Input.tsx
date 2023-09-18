@@ -24,6 +24,7 @@ interface InputProps {
   yearExp: (year: string) => void;
   userNumber: (number: string) => void;
   cvcUser: (number: string) => void;
+  errorCondition: (err: boolean) => void;
 }
 
 export const Input = ({
@@ -32,6 +33,7 @@ export const Input = ({
   yearExp,
   userNumber,
   cvcUser,
+  errorCondition,
 }: InputProps) => {
   const [inputName, setInputName] = useState('');
   const [inputMonth, setInputMonth] = useState('');
@@ -67,12 +69,18 @@ export const Input = ({
   };
 
   const checkError = () => {
-    inputNumber === '' ||
-    inputMonth === '' ||
-    inputYear === '' ||
-    cvcCode === ''
-      ? setIsError(true)
-      : setIsError(false);
+    if (
+      inputNumber === '' ||
+      inputMonth === '' ||
+      inputYear === '' ||
+      cvcCode === ''
+    ) {
+      setIsError(true);
+      errorCondition(true);
+    } else {
+      setIsError(false);
+      errorCondition(false);
+    }
   };
 
   return (
@@ -158,9 +166,7 @@ export const Input = ({
             />
           </Cvc>
         </DateAndCvc>
-        <Button type='submit' onClick={checkError}>
-          Confirm
-        </Button>
+        <Button onClick={checkError}>Confirm</Button>
       </Form>
     </Wrapper>
   );
