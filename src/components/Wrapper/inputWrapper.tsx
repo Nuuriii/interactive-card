@@ -5,22 +5,22 @@ import { Container, Wrapper } from './wrapper.style';
 
 export const InputWrapper = () => {
   const [displayName, setDisplayName] = useState('');
-  const [displayMonth, setDisplayMonth] = useState(0);
-  const [displayYear, setDisplayYear] = useState(0);
+  const [displayMonth, setDisplayMonth] = useState('');
+  const [displayYear, setDisplayYear] = useState('');
   const [displayNumber, setDisplayNumber] = useState('');
-  const [displayCvc, setDisplayCvc] = useState(0);
+  const [displayCvc, setDisplayCvc] = useState('');
 
   const handleInputName = (name: string) => {
     setDisplayName(name);
   };
-  const handleInputMonth = (month: number) => {
+  const handleInputMonth = (month: string) => {
     setDisplayMonth(month);
   };
-  const handleInputYear = (year: number) => {
+  const handleInputYear = (year: string) => {
     setDisplayYear(year);
   };
-  const handleInputNumber = (number: number) => {
-    const toStr = number.toString();
+  const handleInputNumber = (number: string) => {
+    const toStr = number;
     let formattedCardNumber = '';
     for (let i = 0; i < toStr.length; i++) {
       formattedCardNumber += toStr[i];
@@ -31,7 +31,7 @@ export const InputWrapper = () => {
 
     setDisplayNumber(formattedCardNumber);
   };
-  const handleInputCvc = (cvc: number) => {
+  const handleInputCvc = (cvc: string) => {
     setDisplayCvc(cvc);
   };
 

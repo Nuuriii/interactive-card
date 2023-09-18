@@ -10,10 +10,10 @@ import CardLogo from '../../assets/card-logo.svg';
 
 interface CardProps {
   name: string;
-  month: number;
-  year: number;
+  month: string;
+  year: string;
   number: string;
-  cvc: number;
+  cvc: string;
 }
 
 export const Card = ({ name, month, year, number, cvc }: CardProps) => {
@@ -24,19 +24,17 @@ export const Card = ({ name, month, year, number, cvc }: CardProps) => {
           <img src={CardLogo} alt='' />
         </ImageWrapper>
         <UserInformation>
-          <p>
-            {number === 'NaN' || number === '' ? '0000 0000 0000 0000' : number}
-          </p>
+          <p>{number === '' ? '0000 0000 0000 0000' : number}</p>
           <OtherInformation>
             <p>{name !== '' ? name.toUpperCase() : 'JANE APPLESEED'}</p>
             <p>
-              {month > 0 ? month : '00'}/{year > 0 ? year : '00'}
+              {month !== '' ? month : '00'}/{year !== '' ? year : '00'}
             </p>
           </OtherInformation>
         </UserInformation>
       </FrontCard>
       <BackCard>
-        <p>{cvc > 0 ? cvc : '000'}</p>
+        <p>{cvc !== '' ? cvc : '000'}</p>
       </BackCard>
     </Wrapper>
   );

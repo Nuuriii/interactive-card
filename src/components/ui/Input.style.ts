@@ -80,7 +80,7 @@ export const ExpDate = styled.div`
   display: flex;
   width: 60%;
   flex-direction: column;
-  p {
+  > p {
     margin-bottom: 0.5rem;
     font-weight: 500;
     color: hsl(278, 68%, 11%);
@@ -92,10 +92,22 @@ export const MonthAndYear = styled.div`
   margin-right: 0.8rem;
 `;
 
-export const InputMonth = styled.input`
+export const Month = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin-right: 0.7rem;
+`;
+
+export const Year = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
+export const InputMonth = styled.input<{ $isError: boolean }>`
   padding: 0.5rem 0rem 0.5rem 0.3rem;
   border: none;
-  outline: 2px solid hsl(270, 3%, 87%);
+  outline: 1px solid
+    ${(props) => (props.$isError ? 'hsl(0, 100%, 66%)' : 'hsl(270, 3%, 87%)')};
   font-weight: 500;
   color: hsl(278, 68%, 11%);
   margin-right: 0.4rem;
@@ -107,7 +119,8 @@ export const InputMonth = styled.input`
     color: hsl(279, 6%, 55%);
   }
   &:focus {
-    outline: 2px solid hsl(278, 68%, 11%);
+    outline: 2px solid
+      ${(props) => (props.$isError ? 'hsl(0, 100%, 66%)' : 'hsl(270, 3%, 87%)')};
   }
 `;
 
