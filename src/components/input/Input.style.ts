@@ -5,13 +5,16 @@ export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  // margin: 6rem 0 0 0;
+  margin: 0rem 0 0 0;
 `;
 
 export const Form = styled.form`
   display: flex;
   width: 88%;
   flex-direction: column;
+  @media (548px <= width <= 1000px) {
+    width: 30rem;
+  }
 `;
 
 export const UserInformation = styled.div`

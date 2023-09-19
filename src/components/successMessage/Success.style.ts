@@ -2,10 +2,13 @@ import styled from 'styled-components';
 
 export const Wrapper = styled.div`
   display: flex;
-  margin-top: 7rem;
+  margin-top: 0rem;
   width: 85%;
   flex-direction: column;
   align-items: center;
+  @media (width >= 418px) {
+    width: 20rem;
+  }
 `;
 
 export const Message = styled.div`
