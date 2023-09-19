@@ -5,7 +5,7 @@ export const Container = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  height: 100%;
   font-family: SpaceGrotesk, serif;
 
   @font-face {
@@ -16,7 +16,7 @@ export const Container = styled.div`
 
 export const Wrapper = styled.div`
   display: flex;
-  height: 100vh;
+  height: 100%;
   width: 100%;
   align-items: center;
   flex-direction: column;

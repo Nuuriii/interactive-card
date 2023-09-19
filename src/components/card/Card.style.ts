@@ -10,6 +10,8 @@ export const Wrapper = styled.div`
   position: relative;
   height: 15rem;
   background-repeat: no-repeat;
+  top: 0;
+  margin-bottom: 6rem;
 `;
 
 export const FrontCard = styled.div`
@@ -27,6 +29,9 @@ export const FrontCard = styled.div`
   position: absolute;
   width: 19rem;
   border-radius: 0.5rem;
+  @media (578px <= width <= 768px) {
+    left: 4rem;
+  }
 `;
 
 export const ImageWrapper = styled.div`

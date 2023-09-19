@@ -5,7 +5,7 @@ export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 6rem 0 0 0;
+  // margin: 6rem 0 0 0;
 `;
 
 export const Form = styled.form`
