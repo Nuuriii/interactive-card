@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const Wrapper = styled.div`
   display: flex;
   margin-top: 0rem;
-  width: 85%;
+  width: 100%;
   flex-direction: column;
   align-items: center;
   @media (width >= 418px) {
@@ -13,8 +13,13 @@ export const Wrapper = styled.div`
 
 export const Message = styled.div`
   display: flex;
+  height: auto;
   align-items: center;
+  justify-content: center;
   flex-direction: column;
+  @media (548px <= width <= 1000px) {
+    width: 30rem;
+  }
 `;
 
 export const Image = styled.img`
@@ -37,6 +42,7 @@ export const Information = styled.p`
 
 export const Button = styled.button`
   width: 100%;
+  height: 3rem;
   border: none;
   border-radius: 0.3rem;
   padding: 1rem 0;
