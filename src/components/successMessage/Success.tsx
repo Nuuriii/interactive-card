@@ -1,15 +1,26 @@
-import { Wrapper } from './Success.style';
+import {
+  Wrapper,
+  Message,
+  Image,
+  Title,
+  Information,
+  Button,
+} from './Success.style';
 import CompleteIcon from '../../assets/icon-complete.svg';
 
 export const Success = () => {
+  const handleReturnToForm = () => {
+    window.location.reload();
+  };
+
   return (
     <Wrapper>
-      <div>
-        <img src={CompleteIcon} alt='' />
-        <h1>THANK YOU</h1>
-        <p>We've added your card details</p>
-      </div>
-      <button>Continue</button>
+      <Message>
+        <Image src={CompleteIcon} alt='' />
+        <Title>THANK YOU!</Title>
+        <Information>We've added your card details</Information>
+      </Message>
+      <Button onClick={handleReturnToForm}>Continue</Button>
     </Wrapper>
   );
 };
