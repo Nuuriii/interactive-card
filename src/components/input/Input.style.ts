@@ -91,11 +91,13 @@ export const ErrorMessage = styled.p`
 
 export const DateAndCvc = styled.div`
   display: flex;
+  height: 4rem;
 `;
 
 export const ExpDate = styled.div`
   display: flex;
   width: 60%;
+  height: 4.4rem;
   flex-direction: column;
   > p {
     height: auto;
@@ -107,6 +109,7 @@ export const ExpDate = styled.div`
 
 export const MonthAndYear = styled.div`
   display: flex;
+  height: 2.5rem;
   margin-right: 0.8rem;
 `;
 
@@ -114,6 +117,7 @@ export const Month = styled.div`
   display: flex;
   flex-direction: column;
   margin-right: 0.7rem;
+  height: auto;
 `;
 
 export const Year = styled.div`
@@ -122,7 +126,7 @@ export const Year = styled.div`
 `;
 
 export const InputMonth = styled.input<{ $isError: boolean }>`
-  padding: 0.5rem 0rem 0.5rem 0.3rem;
+  padding: 0.8rem 0rem 0.8rem 0.7rem;
   border: none;
   outline: 1px solid
     ${(props) => (props.$isError ? 'hsl(0, 100%, 66%)' : 'hsl(270, 3%, 87%)')};
@@ -131,6 +135,7 @@ export const InputMonth = styled.input<{ $isError: boolean }>`
   margin-right: 0.4rem;
   border-radius: 0.3rem;
   width: 100%;
+  height: 2.4rem;
   &::placeholder {
     font-family: SpaceGrotesk, serif;
     font-weight: 900;
@@ -147,9 +152,10 @@ export const InputYear = styled.input`
   border: none;
   border-radius: 0.3rem;
   width: 100%;
-  outline: 2px solid hsl(270, 3%, 87%);
+  outline: 1px solid hsl(270, 3%, 87%);
   font-weight: 500;
   color: hsl(278, 68%, 11%);
+  height: 2.4rem;
   &::placeholder {
     font-family: SpaceGrotesk, serif;
     font-weight: 900;
@@ -163,6 +169,7 @@ export const InputYear = styled.input`
 export const Cvc = styled.div`
   display: flex;
   width: auto;
+  height: auto;
   flex-direction: column;
   label {
     margin-bottom: 0.5rem;
@@ -176,10 +183,10 @@ export const InputCvc = styled.input`
   border: none;
   border-radius: 0.3rem;
   width: 100%;
-  outline: 2px solid hsl(270, 3%, 87%);
+  outline: 1px solid hsl(270, 3%, 87%);
   font-weight: 500;
   color: hsl(278, 68%, 11%);
-
+  height: 7rem;
   &::placeholder {
     font-family: SpaceGrotesk, serif;
     font-weight: 900;
