@@ -29,8 +29,8 @@ export const FrontCard = styled.div`
   position: absolute;
   width: 19rem;
   border-radius: 0.5rem;
-  @media (578px <= width <= 768px) {
-    left: 4rem;
+  @media (548px <= width <= 1000px) {
+    left: 20%;
   }
 `;
 
@@ -70,5 +70,8 @@ export const BackCard = styled.div`
   p {
     margin: 0.3rem 2rem 0 0;
     color: #fff;
+  }
+  @media (548px <= width <= 1000px) {
+    left: 30%;
   }
 `;
