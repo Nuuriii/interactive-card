@@ -16,8 +16,13 @@ export const Container = styled.div`
 
 export const Wrapper = styled.div`
   display: flex;
-  height: 100%;
+  //height: ;
   width: 100%;
   align-items: center;
   flex-direction: column;
+  justify-content: space-between;
+  @media (width > 1000px) {
+    height: 100%;
+    flex-direction: row;
+  }
 `;

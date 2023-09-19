@@ -5,7 +5,13 @@ export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 0rem 0 0 0;
+  padding: 0rem 0 0 0;
+  margin-bottom: 2rem;
+  @media (width > 1000px) {
+    width: 70%;
+    height: 100%;
+    justify-content: center;
+  }
 `;
 
 export const Form = styled.form`
@@ -15,24 +21,31 @@ export const Form = styled.form`
   @media (548px <= width <= 1000px) {
     width: 30rem;
   }
+  @media (width > 1000px) {
+    height: 20rem;
+    width: 25rem;
+  }
 `;
 
 export const UserInformation = styled.div`
   display: flex;
   flex-direction: column;
+  height: auto;
   margin-bottom: 1rem;
   label {
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.3rem;
+    height: auto;
     font-weight: 500;
     color: hsl(278, 68%, 11%);
   }
 `;
 
 export const InputName = styled.input`
-  padding: 0.5rem 0rem 0.5rem 0.7rem;
+  padding: 0.8rem 0rem 0.8rem 0.7rem;
+  height: auto;
   border: none;
   margin-right: 0.4rem;
-  outline: 2px solid hsl(270, 3%, 87%);
+  outline: 1px solid hsl(270, 3%, 87%);
   font-weight: 500;
   color: hsl(278, 68%, 11%);
   border-radius: 0.3rem;
@@ -48,7 +61,8 @@ export const InputName = styled.input`
 `;
 
 export const InputNumber = styled.input<{ $isError: boolean }>`
-  padding: 0.5rem 0rem 0.5rem 0.7rem;
+  padding: 0.8rem 0rem 0.8rem 0.7rem;
+  height: auto;
   border: none;
   margin-right: 0.4rem;
   outline: 1px solid
@@ -84,7 +98,8 @@ export const ExpDate = styled.div`
   width: 60%;
   flex-direction: column;
   > p {
-    margin-bottom: 0.5rem;
+    height: auto;
+    margin-bottom: 0.4rem;
     font-weight: 500;
     color: hsl(278, 68%, 11%);
   }
@@ -178,6 +193,7 @@ export const Button = styled.button`
   border: none;
   font-weight: 500;
   font-size: 1rem;
+  height: 3rem;
   border-radius: 0.4rem;
   padding: 0.9rem 0;
   margin-top: 2rem;

@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import BgDesktop from '../../assets/bg-main-desktop.png';
 import BgCardMobile from '../../assets/bg-main-mobile.png';
 import BgFrontCard from '../../assets/bg-card-front.png';
 import BgBackCard from '../../assets/bg-card-back.png';
@@ -8,10 +9,16 @@ export const Wrapper = styled.div`
   width: 100%;
   background-size: cover;
   position: relative;
-  height: 15rem;
+  height: 24rem;
   background-repeat: no-repeat;
   top: 0;
   margin-bottom: 6rem;
+  @media (width > 1000px) {
+    background-image: url(${BgDesktop});
+    height: 100%;
+    width: 30%;
+    margin-bottom: 0;
+  }
 `;
 
 export const FrontCard = styled.div`
@@ -24,7 +31,7 @@ export const FrontCard = styled.div`
   background-size: cover;
   background-repeat: no-repeat;
   height: 10rem;
-  top: 7.9rem;
+  top: 6.9rem;
   left: 1rem;
   position: absolute;
   width: 19rem;
@@ -42,7 +49,8 @@ export const ImageWrapper = styled.div`
 `;
 
 export const UserInformation = styled.div`
-  display: block;
+  display: flex;
+  flex-direction: column;
   color: #fff;
   > p {
     margin-bottom: 1rem;
@@ -57,19 +65,21 @@ export const OtherInformation = styled.div`
 export const BackCard = styled.div`
   background-image: url(${BgBackCard});
   display: flex;
-  align-items: center;
+  //align-items: center;
   justify-content: right;
   background-size: cover;
   background-repeat: no-repeat;
   height: 10rem;
-  top: 2rem;
+  top: 1rem;
   left: 13%;
   position: absolute;
   width: 19rem;
   border-radius: 0.5rem;
   p {
+    display: flex;
+    align-items: center;
     margin: 0.3rem 2rem 0 0;
-    color: #fff;
+    color: black;
   }
   @media (548px <= width <= 1000px) {
     left: 35%;
