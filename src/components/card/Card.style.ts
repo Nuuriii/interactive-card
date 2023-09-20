@@ -39,6 +39,10 @@ export const FrontCard = styled.div`
   @media (548px <= width <= 1000px) {
     left: 30%;
   }
+  @media (width >= 1000px) {
+    top: 15%;
+    left: 43%;
+  }
 `;
 
 export const ImageWrapper = styled.div`
@@ -83,5 +87,9 @@ export const BackCard = styled.div`
   }
   @media (548px <= width <= 1000px) {
     left: 35%;
+  }
+  @media (width >= 1000px) {
+    top: 45%;
+    left: 50%;
   }
 `;
