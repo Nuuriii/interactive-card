@@ -94,6 +94,7 @@ export const Input = ({
             placeholder='e.g Jane Appleseed'
             value={inputName}
             onChange={handleName}
+            maxLength={20}
             required
           />
         </UserInformation>
@@ -106,6 +107,7 @@ export const Input = ({
             value={inputNumber}
             onChange={handleNumber}
             required
+            maxLength={16}
             $isError={isError}
           />
           {/* {isError === true && Number.isNaN(inputNumber) ? (
