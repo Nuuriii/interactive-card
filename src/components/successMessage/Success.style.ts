@@ -9,6 +9,10 @@ export const Wrapper = styled.div`
   @media (width >= 418px) {
     width: 20rem;
   }
+  @media (width >= 1000px) {
+    justify-content: center;
+    width: 100%;
+  }
 `;
 
 export const Message = styled.div`
@@ -41,7 +45,7 @@ export const Information = styled.p`
 `;
 
 export const Button = styled.button`
-  width: 100%;
+  width: 90%;
   height: 3rem;
   border: none;
   border-radius: 0.3rem;
@@ -56,5 +60,8 @@ export const Button = styled.button`
   }
   &:active {
     transform: scale(0.957);
+  }
+  @media (width >= 1000px) {
+    width: 20rem;
   }
 `;
