@@ -39,12 +39,13 @@ export const UserInformation = styled.div`
   }
 `;
 
-export const InputName = styled.input`
+export const InputName = styled.input<{ $isError: boolean }>`
   padding: 0.8rem 0rem 0.8rem 0.7rem;
   height: auto;
   border: none;
   margin-right: 0.4rem;
-  outline: 1px solid hsl(270, 3%, 87%);
+  outline: 1px solid
+    ${(props) => (props.$isError ? 'hsl(0, 100%, 66%)' : 'hsl(270, 3%, 87%)')};
   font-weight: 500;
   color: hsl(278, 68%, 11%);
   border-radius: 0.3rem;
@@ -55,7 +56,9 @@ export const InputName = styled.input`
     color: hsl(279, 6%, 55%);
   }
   &:focus {
-    outline: 2px solid hsl(278, 68%, 11%);
+    outline: 2px solid
+      ${(props) =>
+        props.$isError ? 'hsl(0, 100%, 66%)' : 'hsl(278, 68%, 11%)'};
   }
 `;
 
@@ -147,12 +150,13 @@ export const InputMonth = styled.input<{ $isError: boolean }>`
   }
 `;
 
-export const InputYear = styled.input`
+export const InputYear = styled.input<{ $isError: boolean }>`
   padding: 0.5rem 0rem 0.5rem 0.3rem;
   border: none;
   border-radius: 0.3rem;
   width: 100%;
-  outline: 1px solid hsl(270, 3%, 87%);
+  outline: 1px solid
+    ${(props) => (props.$isError ? 'hsl(0, 100%, 66%)' : 'hsl(270, 3%, 87%)')};
   font-weight: 500;
   color: hsl(278, 68%, 11%);
   height: 2.4rem;
@@ -162,7 +166,9 @@ export const InputYear = styled.input`
     color: hsl(279, 6%, 55%);
   }
   &:focus {
-    outline: 2px solid hsl(278, 68%, 11%);
+    outline: 2px solid
+      ${(props) =>
+        props.$isError ? 'hsl(0, 100%, 66%)' : 'hsl(278, 68%, 11%)'};
   }
 `;
 
@@ -178,12 +184,13 @@ export const Cvc = styled.div`
   }
 `;
 
-export const InputCvc = styled.input`
+export const InputCvc = styled.input<{ $isError: boolean }>`
   padding: 0.5rem 0rem 0.5rem 0.3rem;
   border: none;
   border-radius: 0.3rem;
   width: 100%;
-  outline: 1px solid hsl(270, 3%, 87%);
+  outline: 1px solid
+    ${(props) => (props.$isError ? 'hsl(0, 100%, 66%)' : 'hsl(270, 3%, 87%)')};
   font-weight: 500;
   color: hsl(278, 68%, 11%);
   height: 7rem;
@@ -193,7 +200,9 @@ export const InputCvc = styled.input`
     color: hsl(279, 6%, 55%);
   }
   &:focus {
-    outline: 2px solid hsl(278, 68%, 11%);
+    outline: 2px solid
+      ${(props) =>
+        props.$isError ? 'hsl(0, 100%, 66%)' : 'hsl(278, 68%, 11%)'};
   }
 `;
 export const Button = styled.button`

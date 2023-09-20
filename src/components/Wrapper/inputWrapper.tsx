@@ -11,6 +11,7 @@ export const InputWrapper = () => {
   const [displayNumber, setDisplayNumber] = useState('');
   const [displayCvc, setDisplayCvc] = useState('');
   const [isSubmit, setIsSubmit] = useState(true);
+  const [isError, setIsError] = useState(false);
 
   const handleInputName = (name: string) => {
     setDisplayName(name);
@@ -37,8 +38,13 @@ export const InputWrapper = () => {
     setDisplayCvc(cvc);
   };
 
-  const handleSubmit = (submit: boolean) => {
-    setIsSubmit(submit);
+  const handleError = (err: boolean) => {
+    setIsError(err);
+  };
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    isError === true ? setIsSubmit(false) : setIsSubmit(true);
   };
 
   console.log(isSubmit);
@@ -53,17 +59,18 @@ export const InputWrapper = () => {
           year={displayYear}
           cvc={displayCvc}
         />
-        {isSubmit === true ? (
+        {isSubmit ? (
+          <Success />
+        ) : (
           <Input
+            handleSubmit={handleSubmit}
             userName={handleInputName}
             userNumber={handleInputNumber}
             monthExp={handleInputMonth}
             yearExp={handleInputYear}
             cvcUser={handleInputCvc}
-            errorCondition={handleSubmit}
+            errorCondition={handleError}
           />
-        ) : (
-          <Success />
         )}
       </Wrapper>
     </Container>

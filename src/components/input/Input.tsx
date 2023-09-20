@@ -25,6 +25,7 @@ interface InputProps {
   userNumber: (number: string) => void;
   cvcUser: (number: string) => void;
   errorCondition: (err: boolean) => void;
+  handleSubmit: (e: React.FormEvent<HTMLFormElement>) => void;
 }
 
 export const Input = ({
@@ -34,6 +35,7 @@ export const Input = ({
   userNumber,
   cvcUser,
   errorCondition,
+  handleSubmit,
 }: InputProps) => {
   const [inputName, setInputName] = useState('');
   const [inputMonth, setInputMonth] = useState('');
@@ -71,6 +73,7 @@ export const Input = ({
 
   const checkError = () => {
     if (
+      inputName === '' ||
       inputNumber === '' ||
       inputMonth === '' ||
       inputYear === '' ||
@@ -79,19 +82,6 @@ export const Input = ({
       setIsError(true);
       errorCondition(true);
       setIsErrorMessage("Can't be blank");
-    } else if (
-      /^[0-9]+$/.test(inputNumber) === false ||
-      /^[0-9]+$/.test(inputMonth) === false ||
-      /^[0-9]+$/.test(inputYear) === false ||
-      /^[0-9]+$/.test(cvcCode) === false
-    ) {
-      setIsError(true);
-      errorCondition(true);
-      setIsErrorMessage('Wrong format, numbers only');
-    } else if (inputMonth >= '12' || inputYear >= '12') {
-      setIsError(true);
-      errorCondition(true);
-      setIsErrorMessage('must be under 13');
     } else {
       setIsError(false);
       errorCondition(false);
@@ -101,7 +91,7 @@ export const Input = ({
 
   return (
     <Wrapper>
-      <Form action=''>
+      <Form onSubmit={handleSubmit}>
         <UserInformation>
           <label htmlFor='name'>CARDHOLDER NAME</label>
           <InputName
@@ -111,8 +101,10 @@ export const Input = ({
             value={inputName}
             onChange={handleName}
             maxLength={18}
-            required
+            $isError={isError}
+            //required
           />
+          {isError === true ? <ErrorMessage>{errorMessage}</ErrorMessage> : ''}
         </UserInformation>
         <UserInformation>
           <label htmlFor='number'>CARD NUMBER</label>
@@ -122,7 +114,7 @@ export const Input = ({
             placeholder='e.g 1234 5678 9123 0000'
             value={inputNumber}
             onChange={handleNumber}
-            required
+            // required
             maxLength={16}
             $isError={isError}
           />
@@ -143,16 +135,14 @@ export const Input = ({
                   placeholder='MM'
                   value={inputMonth}
                   onChange={handleMonth}
-                  required
+                  //required
                   $isError={isError}
                 />
-                {/* {isError === true && Number.isNaN(inputMonth) ? (
-                  <ErrorMessage>Wrong format, numbers only</ErrorMessage>
-                ) : isError === true && inputMonth === 0 ? (
-                  <ErrorMessage>Can't be blank</ErrorMessage>
+                {isError === true ? (
+                  <ErrorMessage>{errorMessage}</ErrorMessage>
                 ) : (
                   ''
-                )} */}
+                )}
               </Month>
               <Year>
                 <InputYear
@@ -161,8 +151,14 @@ export const Input = ({
                   placeholder='YY'
                   value={inputYear}
                   onChange={handleYear}
-                  required
+                  //required
+                  $isError={isError}
                 />
+                {isError === true ? (
+                  <ErrorMessage>{errorMessage}</ErrorMessage>
+                ) : (
+                  ''
+                )}
               </Year>
             </MonthAndYear>
           </ExpDate>
@@ -174,11 +170,19 @@ export const Input = ({
               placeholder='e.g. 123'
               value={cvcCode}
               onChange={handleCvc}
-              required
+              //required
+              $isError={isError}
             />
+            {isError === true ? (
+              <ErrorMessage>{errorMessage}</ErrorMessage>
+            ) : (
+              ''
+            )}
           </Cvc>
         </DateAndCvc>
-        <Button onClick={checkError}>Confirm</Button>
+        <Button type='submit' onClick={checkError}>
+          Confirm
+        </Button>
       </Form>
     </Wrapper>
   );
