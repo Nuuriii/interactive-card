@@ -82,6 +82,9 @@ export const Input = ({
       setIsError(true);
       errorCondition(true);
       setIsErrorMessage("Can't be blank");
+    } else if (/^[0-9]+$/.test(inputNumber) === false) {
+      setIsError(true);
+      errorCondition(true);
     } else {
       setIsError(false);
       errorCondition(false);
@@ -118,7 +121,13 @@ export const Input = ({
             maxLength={16}
             $isError={isError}
           />
-          {isError === true ? <ErrorMessage>{errorMessage}</ErrorMessage> : ''}
+          {isError === true && inputNumber === '' ? (
+            <ErrorMessage>{errorMessage}</ErrorMessage>
+          ) : isError === true && /^[0-9]+$/.test(inputNumber) === false ? (
+            <ErrorMessage>Wrong format, number only</ErrorMessage>
+          ) : (
+            ''
+          )}
         </UserInformation>
 
         <DateAndCvc>
@@ -135,11 +144,16 @@ export const Input = ({
                   placeholder='MM'
                   value={inputMonth}
                   onChange={handleMonth}
-                  //required
+                  maxLength={2}
                   $isError={isError}
                 />
-                {isError === true ? (
+                {isError === true && inputMonth === '' ? (
                   <ErrorMessage>{errorMessage}</ErrorMessage>
+                ) : isError === true &&
+                  /^[0-9]+$/.test(inputMonth) === false ? (
+                  <ErrorMessage>Number only</ErrorMessage>
+                ) : isError === true && inputMonth === '13' ? (
+                  <ErrorMessage>Must be under 13</ErrorMessage>
                 ) : (
                   ''
                 )}
@@ -151,11 +165,13 @@ export const Input = ({
                   placeholder='YY'
                   value={inputYear}
                   onChange={handleYear}
-                  //required
+                  maxLength={4}
                   $isError={isError}
                 />
-                {isError === true ? (
+                {isError === true && inputYear === '' ? (
                   <ErrorMessage>{errorMessage}</ErrorMessage>
+                ) : isError === true && /^[0-9]+$/.test(inputYear) === false ? (
+                  <ErrorMessage>Number only</ErrorMessage>
                 ) : (
                   ''
                 )}
@@ -172,9 +188,12 @@ export const Input = ({
               onChange={handleCvc}
               //required
               $isError={isError}
+              maxLength={3}
             />
-            {isError === true ? (
+            {isError === true && cvcCode === '' ? (
               <ErrorMessage>{errorMessage}</ErrorMessage>
+            ) : isError === true && /^[0-9]+$/.test(cvcCode) === false ? (
+              <ErrorMessage>Number only</ErrorMessage>
             ) : (
               ''
             )}

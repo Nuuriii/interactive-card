@@ -10,7 +10,7 @@ export const InputWrapper = () => {
   const [displayYear, setDisplayYear] = useState('');
   const [displayNumber, setDisplayNumber] = useState('');
   const [displayCvc, setDisplayCvc] = useState('');
-  const [isSubmit, setIsSubmit] = useState(true);
+  const [isSubmit, setIsSubmit] = useState(false);
   const [isError, setIsError] = useState(false);
 
   const handleInputName = (name: string) => {

@@ -89,6 +89,7 @@ export const ErrorMessage = styled.p`
   margin-top: 0.2rem;
   color: hsl(0, 100%, 66%);
   font-weight: 500;
+  font-size: 0.7rem;
 `;
 
 export const DateAndCvc = styled.div`
@@ -125,6 +126,7 @@ export const Month = styled.div`
 export const Year = styled.div`
   display: flex;
   flex-direction: column;
+  height: auto;
 `;
 
 export const InputMonth = styled.input<{ $isError: boolean }>`
@@ -151,7 +153,7 @@ export const InputMonth = styled.input<{ $isError: boolean }>`
 `;
 
 export const InputYear = styled.input<{ $isError: boolean }>`
-  padding: 0.5rem 0rem 0.5rem 0.3rem;
+  padding: 0.8rem 0rem 0.8rem 0.8rem;
   border: none;
   border-radius: 0.3rem;
   width: 100%;
@@ -178,14 +180,14 @@ export const Cvc = styled.div`
   height: auto;
   flex-direction: column;
   label {
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.4rem;
     font-weight: 500;
     color: hsl(278, 68%, 11%);
   }
 `;
 
 export const InputCvc = styled.input<{ $isError: boolean }>`
-  padding: 0.5rem 0rem 0.5rem 0.3rem;
+  padding: 0.8rem 0rem 0.8rem 0.8rem;
   border: none;
   border-radius: 0.3rem;
   width: 100%;
@@ -193,7 +195,7 @@ export const InputCvc = styled.input<{ $isError: boolean }>`
     ${(props) => (props.$isError ? 'hsl(0, 100%, 66%)' : 'hsl(270, 3%, 87%)')};
   font-weight: 500;
   color: hsl(278, 68%, 11%);
-  height: 7rem;
+  height: 2.4rem;
   &::placeholder {
     font-family: SpaceGrotesk, serif;
     font-weight: 900;
@@ -212,7 +214,7 @@ export const Button = styled.button`
   height: 3rem;
   border-radius: 0.4rem;
   padding: 0.9rem 0;
-  margin-top: 2rem;
+  margin-top: 3rem;
   color: hsl(0, 0%, 100%);
   text-align: center;
   cursor: pointer;
