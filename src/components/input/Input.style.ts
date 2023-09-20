@@ -142,7 +142,8 @@ export const InputMonth = styled.input<{ $isError: boolean }>`
   }
   &:focus {
     outline: 2px solid
-      ${(props) => (props.$isError ? 'hsl(0, 100%, 66%)' : 'hsl(270, 3%, 87%)')};
+      ${(props) =>
+        props.$isError ? 'hsl(0, 100%, 66%)' : 'hsl(278, 68%, 11%)'};
   }
 `;
 

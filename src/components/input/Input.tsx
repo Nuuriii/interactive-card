@@ -15,7 +15,7 @@ import {
   Cvc,
   InputCvc,
   Button,
-  //ErrorMessage,
+  ErrorMessage,
 } from './Input.style';
 
 interface InputProps {
@@ -41,6 +41,7 @@ export const Input = ({
   const [inputNumber, setInputNumber] = useState('');
   const [cvcCode, setCvcCode] = useState('');
   const [isError, setIsError] = useState(false);
+  const [errorMessage, setIsErrorMessage] = useState('');
 
   const handleName = (event: React.ChangeEvent<HTMLInputElement>) => {
     const name = event.target.value;
@@ -77,9 +78,24 @@ export const Input = ({
     ) {
       setIsError(true);
       errorCondition(true);
+      setIsErrorMessage("Can't be blank");
+    } else if (
+      /^[0-9]+$/.test(inputNumber) === false ||
+      /^[0-9]+$/.test(inputMonth) === false ||
+      /^[0-9]+$/.test(inputYear) === false ||
+      /^[0-9]+$/.test(cvcCode) === false
+    ) {
+      setIsError(true);
+      errorCondition(true);
+      setIsErrorMessage('Wrong format, numbers only');
+    } else if (inputMonth >= '12' || inputYear >= '12') {
+      setIsError(true);
+      errorCondition(true);
+      setIsErrorMessage('must be under 13');
     } else {
       setIsError(false);
       errorCondition(false);
+      setIsErrorMessage('');
     }
   };
 
@@ -94,7 +110,7 @@ export const Input = ({
             placeholder='e.g Jane Appleseed'
             value={inputName}
             onChange={handleName}
-            maxLength={20}
+            maxLength={18}
             required
           />
         </UserInformation>
@@ -110,13 +126,7 @@ export const Input = ({
             maxLength={16}
             $isError={isError}
           />
-          {/* {isError === true && Number.isNaN(inputNumber) ? (
-            <ErrorMessage>Wrong format, numbers only</ErrorMessage>
-          ) : isError === true (
-            <ErrorMessage>Can't be blank</ErrorMessage>
-          ) : (
-            ''
-          )} */}
+          {isError === true ? <ErrorMessage>{errorMessage}</ErrorMessage> : ''}
         </UserInformation>
 
         <DateAndCvc>
