@@ -43,53 +43,73 @@ export const Input = ({
   const [inputNumber, setInputNumber] = useState('');
   const [cvcCode, setCvcCode] = useState('');
   const [isError, setIsError] = useState(false);
-  const [errorMessage, setIsErrorMessage] = useState('');
+  const [errorName, setErrorName] = useState(false);
+  const [errorNumber, setErrorNumber] = useState(false);
+  const [errorMonth, setErrorMonth] = useState(false);
+  const [errorYear, setErrorYear] = useState(false);
+  const [errorCvc, setErrorCvc] = useState(false);
+
+  const checkError = () => {
+    // Validasi inputName
+    setErrorName(inputName === '');
+    console.log(`ini nilai dari error name : ${errorName}`);
+
+    // Validasi inputNumber
+    setErrorNumber(inputNumber === '' || !/^[0-9]+$/.test(inputNumber));
+    console.log(errorNumber);
+    // Validasi inputMonth
+    setErrorMonth(
+      inputMonth === '' ||
+        !/^[0-9]+$/.test(inputMonth) ||
+        Number(inputMonth) >= 12,
+    );
+
+    // Validasi inputYear
+    setErrorYear(inputYear === '' || !/^[0-9]+$/.test(inputYear));
+
+    // Validasi cvcCode
+    setErrorCvc(cvcCode === '' || !/^[0-9]+$/.test(cvcCode));
+
+    // Cek apakah ada kesalahan
+    const hasError =
+      errorName || errorNumber || errorMonth || errorYear || errorCvc;
+
+    // Set nilai isError dan panggil errorCondition
+    setIsError(hasError);
+    errorCondition(hasError);
+
+    console.log(`ini jika ${hasError ? 'benar' : 'salah'}: ${isError}`);
+  };
 
   const handleName = (event: React.ChangeEvent<HTMLInputElement>) => {
     const name = event.target.value;
     setInputName(name);
     userName(name);
+    checkError();
   };
   const handleMonth = (event: React.ChangeEvent<HTMLInputElement>) => {
     const month = event.target.value;
     setInputMonth(month);
     monthExp(month);
+    checkError();
   };
   const handleYear = (event: React.ChangeEvent<HTMLInputElement>) => {
     const year = event.target.value;
     setInputYear(year);
     yearExp(year);
+    checkError();
   };
   const handleNumber = (event: React.ChangeEvent<HTMLInputElement>) => {
     const number = event.target.value;
     setInputNumber(number);
     userNumber(number);
+    checkError();
   };
   const handleCvc = (event: React.ChangeEvent<HTMLInputElement>) => {
     const cvc = event.target.value;
     setCvcCode(cvc);
     cvcUser(cvc);
-  };
-
-  const checkError = () => {
-    if (
-      inputName === '' ||
-      inputNumber === '' ||
-      inputMonth === '' ||
-      inputYear === '' ||
-      cvcCode === ''
-    ) {
-      setIsError(true);
-      errorCondition(true);
-      setIsErrorMessage("Can't be blank");
-    } else if (/^[0-9]+$/.test(inputNumber) === false) {
-      setIsError(true);
-      errorCondition(true);
-    } else {
-      setIsError(false);
-      errorCondition(false);
-      setIsErrorMessage('');
-    }
+    checkError();
   };
 
   return (
@@ -104,10 +124,14 @@ export const Input = ({
             value={inputName}
             onChange={handleName}
             maxLength={18}
-            $isError={isError}
+            $isError={errorName}
             //required
           />
-          {isError === true ? <ErrorMessage>{errorMessage}</ErrorMessage> : ''}
+          {errorName === true ? (
+            <ErrorMessage>Can't be blank</ErrorMessage>
+          ) : (
+            ''
+          )}
         </UserInformation>
         <UserInformation>
           <label htmlFor='number'>CARD NUMBER</label>
@@ -119,11 +143,11 @@ export const Input = ({
             onChange={handleNumber}
             // required
             maxLength={16}
-            $isError={isError}
+            $isError={errorNumber}
           />
-          {isError === true && inputNumber === '' ? (
-            <ErrorMessage>{errorMessage}</ErrorMessage>
-          ) : isError === true && /^[0-9]+$/.test(inputNumber) === false ? (
+          {errorNumber === true && inputNumber === '' ? (
+            <ErrorMessage>Can't be blank</ErrorMessage>
+          ) : errorNumber === true && /^[0-9]+$/.test(inputNumber) === false ? (
             <ErrorMessage>Wrong format, number only</ErrorMessage>
           ) : (
             ''
@@ -145,14 +169,14 @@ export const Input = ({
                   value={inputMonth}
                   onChange={handleMonth}
                   maxLength={2}
-                  $isError={isError}
+                  $isError={errorMonth}
                 />
-                {isError === true && inputMonth === '' ? (
-                  <ErrorMessage>{errorMessage}</ErrorMessage>
-                ) : isError === true &&
+                {errorMonth === true && inputMonth === '' ? (
+                  <ErrorMessage>Can't be blank</ErrorMessage>
+                ) : errorMonth === true &&
                   /^[0-9]+$/.test(inputMonth) === false ? (
                   <ErrorMessage>Number only</ErrorMessage>
-                ) : isError === true && inputMonth === '13' ? (
+                ) : errorMonth === true && inputMonth === '13' ? (
                   <ErrorMessage>Must be under 13</ErrorMessage>
                 ) : (
                   ''
@@ -166,11 +190,12 @@ export const Input = ({
                   value={inputYear}
                   onChange={handleYear}
                   maxLength={4}
-                  $isError={isError}
+                  $isError={errorYear}
                 />
-                {isError === true && inputYear === '' ? (
-                  <ErrorMessage>{errorMessage}</ErrorMessage>
-                ) : isError === true && /^[0-9]+$/.test(inputYear) === false ? (
+                {errorYear === true && inputYear === '' ? (
+                  <ErrorMessage>Can't be blank</ErrorMessage>
+                ) : errorYear === true &&
+                  /^[0-9]+$/.test(inputYear) === false ? (
                   <ErrorMessage>Number only</ErrorMessage>
                 ) : (
                   ''
@@ -187,12 +212,12 @@ export const Input = ({
               value={cvcCode}
               onChange={handleCvc}
               //required
-              $isError={isError}
+              $isError={errorCvc}
               maxLength={3}
             />
-            {isError === true && cvcCode === '' ? (
-              <ErrorMessage>{errorMessage}</ErrorMessage>
-            ) : isError === true && /^[0-9]+$/.test(cvcCode) === false ? (
+            {errorCvc === true && cvcCode === '' ? (
+              <ErrorMessage>Can't be blank</ErrorMessage>
+            ) : errorCvc === true && /^[0-9]+$/.test(cvcCode) === false ? (
               <ErrorMessage>Number only</ErrorMessage>
             ) : (
               ''
