@@ -214,7 +214,7 @@ export const Button = styled.button`
   height: 3rem;
   border-radius: 0.4rem;
   padding: 0.9rem 0;
-  margin-top: 3rem;
+  margin: 3rem 0 2rem 0;
   color: hsl(0, 0%, 100%);
   text-align: center;
   cursor: pointer;

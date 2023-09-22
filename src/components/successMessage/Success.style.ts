@@ -55,6 +55,7 @@ export const Button = styled.button`
   color: hsl(0, 0%, 100%);
   text-align: center;
   background-color: hsl(278, 68%, 11%);
+  margin-bottom: 2rem;
   &:hover {
     background-color: hsl(278, 67%, 22%);
   }
