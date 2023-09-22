@@ -42,76 +42,96 @@ export const Input = ({
   const [inputYear, setInputYear] = useState('');
   const [inputNumber, setInputNumber] = useState('');
   const [cvcCode, setCvcCode] = useState('');
-  const [isError, setIsError] = useState(false);
-  const [errorName, setErrorName] = useState(false);
-  const [errorNumber, setErrorNumber] = useState(false);
-  const [errorMonth, setErrorMonth] = useState(false);
-  const [errorYear, setErrorYear] = useState(false);
-  const [errorCvc, setErrorCvc] = useState(false);
-
-  const checkError = () => {
-    // Validasi inputName
-    setErrorName(inputName === '');
-    console.log(`ini nilai dari error name : ${errorName}`);
-
-    // Validasi inputNumber
-    setErrorNumber(inputNumber === '' || !/^[0-9]+$/.test(inputNumber));
-    console.log(errorNumber);
-    // Validasi inputMonth
-    setErrorMonth(
-      inputMonth === '' ||
-        !/^[0-9]+$/.test(inputMonth) ||
-        Number(inputMonth) >= 12,
-    );
-
-    // Validasi inputYear
-    setErrorYear(inputYear === '' || !/^[0-9]+$/.test(inputYear));
-
-    // Validasi cvcCode
-    setErrorCvc(cvcCode === '' || !/^[0-9]+$/.test(cvcCode));
-
-    // Cek apakah ada kesalahan
-    const hasError =
-      errorName || errorNumber || errorMonth || errorYear || errorCvc;
-
-    // Set nilai isError dan panggil errorCondition
-    setIsError(hasError);
-    errorCondition(hasError);
-
-    console.log(`ini jika ${hasError ? 'benar' : 'salah'}: ${isError}`);
-  };
+  const [errorName, setErrorName] = useState<boolean>(false);
+  const [errorNumber, setErrorNumber] = useState<boolean>(false);
+  const [errorMonth, setErrorMonth] = useState<boolean>(false);
+  const [errorYear, setErrorYear] = useState<boolean>(false);
+  const [errorCvc, setErrorCvc] = useState<boolean>(false);
 
   const handleName = (event: React.ChangeEvent<HTMLInputElement>) => {
     const name = event.target.value;
+    name === '' ? setErrorName(true) : setErrorName(false);
     setInputName(name);
     userName(name);
-    checkError();
   };
   const handleMonth = (event: React.ChangeEvent<HTMLInputElement>) => {
     const month = event.target.value;
     setInputMonth(month);
     monthExp(month);
-    checkError();
   };
   const handleYear = (event: React.ChangeEvent<HTMLInputElement>) => {
     const year = event.target.value;
     setInputYear(year);
     yearExp(year);
-    checkError();
   };
   const handleNumber = (event: React.ChangeEvent<HTMLInputElement>) => {
     const number = event.target.value;
     setInputNumber(number);
     userNumber(number);
-    checkError();
   };
   const handleCvc = (event: React.ChangeEvent<HTMLInputElement>) => {
     const cvc = event.target.value;
     setCvcCode(cvc);
     cvcUser(cvc);
-    checkError();
   };
 
+  const checkError = () => {
+    // Validasi inputName
+    const checkName = () => {
+      const name = inputName === '' ? true : false;
+      setErrorName(name);
+      return name;
+    };
+
+    const checkNumber = () => {
+      const userNum =
+        inputNumber === ''
+          ? true
+          : !/^[0-9]+$/.test(inputNumber)
+          ? true
+          : false;
+      setErrorNumber(userNum);
+      return userNum;
+    };
+
+    const checkMonth = () => {
+      const userMonth =
+        inputMonth === ''
+          ? true
+          : !/^[0-9]+$/.test(inputMonth)
+          ? true
+          : Number(inputMonth) > 12
+          ? true
+          : false;
+      setErrorMonth(userMonth);
+      return userMonth;
+    };
+
+    const checkYear = () => {
+      const userYear =
+        inputYear === '' ? true : !/^[0-9]+$/.test(inputYear) ? true : false;
+      setErrorYear(userYear);
+      return userYear;
+    };
+
+    const checkCvc = () => {
+      const userCvc =
+        cvcCode === '' ? true : !/^[0-9]+$/.test(cvcCode) ? true : false;
+      setErrorCvc(userCvc);
+      return userCvc;
+    };
+
+    // Cek apakah ada kesalahan
+    const hasError =
+      checkName() || checkNumber() || checkMonth() || checkYear() || checkCvc();
+
+    // Set nilai isError dan panggil errorCondition
+
+    errorCondition(hasError);
+
+    //console.log(`ini jika ${checkName() ? 'benar' : 'salah'}: ${has}`);
+  };
+  console.log(errorName);
   return (
     <Wrapper>
       <Form onSubmit={handleSubmit}>
@@ -176,7 +196,7 @@ export const Input = ({
                 ) : errorMonth === true &&
                   /^[0-9]+$/.test(inputMonth) === false ? (
                   <ErrorMessage>Number only</ErrorMessage>
-                ) : errorMonth === true && inputMonth === '13' ? (
+                ) : errorMonth === true && Number(inputMonth) > 12 ? (
                   <ErrorMessage>Must be under 13</ErrorMessage>
                 ) : (
                   ''
