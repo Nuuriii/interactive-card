@@ -4,7 +4,7 @@ import SpaceGrotesk from '../../assets/fonts/SpaceGrotesk-VariableFont_wght.ttf'
 export const Container = styled.div`
   display: flex;
   justify-content: center;
-  align-items: center;
+  //align-items: center;
   height: 100%;
   font-family: SpaceGrotesk, serif;
 

@@ -8,17 +8,24 @@ export const Wrapper = styled.div`
   background-image: url(${BgCardMobile});
   width: 100%;
   background-size: cover;
-  position: relative;
-  height: 24rem;
+  height: 12rem;
+  background-color: gray;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background-repeat: no-repeat;
-  top: 0;
-  margin-bottom: 6rem;
+  margin-bottom: 10rem;
+  padding-bottom: 12rem;
   @media (width > 1000px) {
     background-image: url(${BgDesktop});
     height: 100%;
     width: 30%;
     margin-bottom: 0;
   }
+`;
+
+export const CardContainer = styled.div`
+  position: relative;
 `;
 
 export const FrontCard = styled.div`
@@ -31,13 +38,13 @@ export const FrontCard = styled.div`
   background-size: cover;
   background-repeat: no-repeat;
   height: 10rem;
-  top: 6.9rem;
-  left: 1rem;
+  top: 7rem;
+  right: -8rem;
   position: absolute;
   width: 19rem;
   border-radius: 0.5rem;
   @media (548px <= width <= 1000px) {
-    left: 30%;
+    right: -7rem;
   }
   @media (width >= 1000px) {
     top: 15%;
@@ -75,18 +82,19 @@ export const BackCard = styled.div`
   background-repeat: no-repeat;
   height: 10rem;
   top: 1rem;
-  left: 13%;
+  left: -9rem;
   position: absolute;
   width: 19rem;
   border-radius: 0.5rem;
   p {
     display: flex;
     align-items: center;
-    margin: 0.3rem 2rem 0 0;
+    margin: 0.1rem 2rem 0 0;
     color: black;
   }
   @media (548px <= width <= 1000px) {
-    left: 35%;
+    left: -6rem;
+    right: -90rem;
   }
   @media (width >= 1000px) {
     top: 45%;
