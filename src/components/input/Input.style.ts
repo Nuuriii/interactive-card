@@ -2,20 +2,20 @@ import styled from 'styled-components';
 
 export const Wrapper = styled.div`
   width: 100%;
+  margin-bottom: 2rem;
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-bottom: 2rem;
   @media (width > 1000px) {
-    width: 70%;
     height: 100%;
+    width: 70%;
     justify-content: center;
   }
 `;
 
 export const Form = styled.form`
-  display: flex;
   width: 88%;
+  display: flex;
   flex-direction: column;
   @media (548px <= width <= 1000px) {
     width: 30rem;
@@ -27,29 +27,29 @@ export const Form = styled.form`
 `;
 
 export const UserInformation = styled.div`
-  display: flex;
-  flex-direction: column;
   height: auto;
   margin-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
   label {
-    margin-bottom: 0.3rem;
     height: auto;
+    margin-bottom: 0.3rem;
     font-weight: 500;
     color: hsl(278, 68%, 11%);
   }
 `;
 
 export const InputName = styled.input<{ $isError: boolean }>`
-  padding: 0.8rem 0rem 0.8rem 0.7rem;
   height: auto;
-  border: none;
+  width: 100%;
   margin-right: 0.4rem;
+  padding: 0.8rem 0rem 0.8rem 0.7rem;
+  border: none;
+  border-radius: 0.3rem;
   outline: 1px solid
     ${(props) => (props.$isError ? 'hsl(0, 100%, 66%)' : 'hsl(270, 3%, 87%)')};
   font-weight: 500;
   color: hsl(278, 68%, 11%);
-  border-radius: 0.3rem;
-  width: 100%;
   &::placeholder {
     font-family: SpaceGrotesk, serif;
     font-weight: 900;
@@ -63,16 +63,16 @@ export const InputName = styled.input<{ $isError: boolean }>`
 `;
 
 export const InputNumber = styled.input<{ $isError: boolean }>`
-  padding: 0.8rem 0rem 0.8rem 0.7rem;
   height: auto;
-  border: none;
+  width: 100%;
   margin-right: 0.4rem;
+  padding: 0.8rem 0rem 0.8rem 0.7rem;
+  border: none;
+  border-radius: 0.3rem;
   outline: 1px solid
     ${(props) => (props.$isError ? 'hsl(0, 100%, 66%)' : 'hsl(270, 3%, 87%)')};
   font-weight: 500;
   color: hsl(278, 68%, 11%);
-  border-radius: 0.3rem;
-  width: 100%;
   &::placeholder {
     font-family: SpaceGrotesk, serif;
     font-weight: 900;
@@ -87,20 +87,20 @@ export const InputNumber = styled.input<{ $isError: boolean }>`
 
 export const ErrorMessage = styled.p`
   margin-top: 0.2rem;
-  color: hsl(0, 100%, 66%);
   font-weight: 500;
   font-size: 0.7rem;
+  color: hsl(0, 100%, 66%);
 `;
 
 export const DateAndCvc = styled.div`
-  display: flex;
   height: 4rem;
+  display: flex;
 `;
 
 export const ExpDate = styled.div`
-  display: flex;
-  width: 60%;
   height: 4.4rem;
+  width: 60%;
+  display: flex;
   flex-direction: column;
   > p {
     height: auto;
@@ -111,35 +111,35 @@ export const ExpDate = styled.div`
 `;
 
 export const MonthAndYear = styled.div`
-  display: flex;
   height: 2.5rem;
   margin-right: 0.8rem;
+  display: flex;
 `;
 
 export const Month = styled.div`
+  height: auto;
+  margin-right: 0.7rem;
   display: flex;
   flex-direction: column;
-  margin-right: 0.7rem;
-  height: auto;
 `;
 
 export const Year = styled.div`
+  height: auto;
   display: flex;
   flex-direction: column;
-  height: auto;
 `;
 
 export const InputMonth = styled.input<{ $isError: boolean }>`
+  height: 2.4rem;
+  width: 100%;
   padding: 0.8rem 0rem 0.8rem 0.7rem;
+  margin-right: 0.4rem;
   border: none;
+  border-radius: 0.3rem;
   outline: 1px solid
     ${(props) => (props.$isError ? 'hsl(0, 100%, 66%)' : 'hsl(270, 3%, 87%)')};
   font-weight: 500;
   color: hsl(278, 68%, 11%);
-  margin-right: 0.4rem;
-  border-radius: 0.3rem;
-  width: 100%;
-  height: 2.4rem;
   &::placeholder {
     font-family: SpaceGrotesk, serif;
     font-weight: 900;
@@ -153,15 +153,15 @@ export const InputMonth = styled.input<{ $isError: boolean }>`
 `;
 
 export const InputYear = styled.input<{ $isError: boolean }>`
+  height: 2.4rem;
+  width: 100%;
   padding: 0.8rem 0rem 0.8rem 0.8rem;
   border: none;
   border-radius: 0.3rem;
-  width: 100%;
   outline: 1px solid
     ${(props) => (props.$isError ? 'hsl(0, 100%, 66%)' : 'hsl(270, 3%, 87%)')};
   font-weight: 500;
   color: hsl(278, 68%, 11%);
-  height: 2.4rem;
   &::placeholder {
     font-family: SpaceGrotesk, serif;
     font-weight: 900;
@@ -175,9 +175,9 @@ export const InputYear = styled.input<{ $isError: boolean }>`
 `;
 
 export const Cvc = styled.div`
-  display: flex;
-  width: auto;
   height: auto;
+  width: auto;
+  display: flex;
   flex-direction: column;
   label {
     margin-bottom: 0.4rem;
@@ -187,15 +187,15 @@ export const Cvc = styled.div`
 `;
 
 export const InputCvc = styled.input<{ $isError: boolean }>`
+  height: 2.4rem;
+  width: 100%;
   padding: 0.8rem 0rem 0.8rem 0.8rem;
   border: none;
   border-radius: 0.3rem;
-  width: 100%;
   outline: 1px solid
     ${(props) => (props.$isError ? 'hsl(0, 100%, 66%)' : 'hsl(270, 3%, 87%)')};
   font-weight: 500;
   color: hsl(278, 68%, 11%);
-  height: 2.4rem;
   &::placeholder {
     font-family: SpaceGrotesk, serif;
     font-weight: 900;
@@ -208,17 +208,17 @@ export const InputCvc = styled.input<{ $isError: boolean }>`
   }
 `;
 export const Button = styled.button`
+  height: 3rem;
+  margin: 3rem 0 2rem 0;
+  padding: 0.9rem 0;
   border: none;
+  text-align: center;
   font-weight: 500;
   font-size: 1rem;
-  height: 3rem;
   border-radius: 0.4rem;
-  padding: 0.9rem 0;
-  margin: 3rem 0 2rem 0;
   color: hsl(0, 0%, 100%);
-  text-align: center;
-  cursor: pointer;
   background-color: hsl(278, 68%, 11%);
+  cursor: pointer;
   &:hover {
     background-color: hsl(278, 68%, 17%);
   }
