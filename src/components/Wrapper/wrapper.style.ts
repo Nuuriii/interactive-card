@@ -21,7 +21,7 @@ export const Wrapper = styled.div`
   align-items: center;
   flex-direction: column;
   justify-content: space-between;
-  @media (width > 1000px) {
+  @media (width > 1168px) {
     height: 100%;
     flex-direction: row;
   }

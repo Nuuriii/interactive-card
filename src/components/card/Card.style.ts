@@ -15,7 +15,7 @@ export const Wrapper = styled.div`
   background-repeat: no-repeat;
   margin-bottom: 10rem;
   padding-bottom: 12rem;
-  @media (width > 1000px) {
+  @media (width > 1168px) {
     background-image: url(${BgDesktop});
     height: 100%;
     width: 30%;
@@ -43,10 +43,10 @@ export const FrontCard = styled.div`
   position: absolute;
   width: 19rem;
   border-radius: 0.5rem;
-  @media (548px <= width <= 1000px) {
+  @media (548px <= width <= 1168px) {
     right: -7rem;
   }
-  @media (width >= 1000px) {
+  @media (width >= 1168px) {
     box-shadow:
       rgba(14, 30, 37, 0.12) 0px 2px 4px 0px,
       rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
@@ -95,11 +95,11 @@ export const BackCard = styled.div`
     margin: 0.1rem 2rem 0 0;
     color: black;
   }
-  @media (548px <= width <= 1000px) {
+  @media (548px <= width <= 1168px) {
     left: -6rem;
     right: -90rem;
   }
-  @media (width >= 1000px) {
+  @media (width >= 1168px) {
     top: 15rem;
     box-shadow:
       rgba(14, 30, 37, 0.12) 0px 2px 4px 0px,
