@@ -53,6 +53,10 @@ export const FrontCard = styled.div`
       rgba(14, 30, 37, 0.12) 0px 2px 4px 0px,
       rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
   }
+  @media (width >= 1888px) {
+    top: 40%;
+    left: 10%;
+  }
 `;
 
 export const ImageWrapper = styled.div`
@@ -104,5 +108,15 @@ export const BackCard = styled.div`
     box-shadow:
       rgba(14, 30, 37, 0.12) 0px 2px 4px 0px,
       rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+  }
+  @media (width >= 1888px) {
+    top: 70%;
+    left: 5rem;
+  }
+  @media (width >= 2188px) {
+    top: 60%;
+  }
+  @media (width >= 2788px) {
+    top: 52%;
   }
 `;
