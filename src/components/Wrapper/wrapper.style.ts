@@ -2,10 +2,9 @@ import styled from 'styled-components';
 import SpaceGrotesk from '../../assets/fonts/SpaceGrotesk-VariableFont_wght.ttf';
 
 export const Container = styled.div`
+  height: 100%;
   display: flex;
   justify-content: center;
-  //align-items: center;
-  height: 100%;
   font-family: SpaceGrotesk, serif;
 
   @font-face {
@@ -15,11 +14,11 @@ export const Container = styled.div`
 `;
 
 export const Wrapper = styled.div`
-  display: flex;
   height: auto;
   width: 100%;
-  align-items: center;
+  display: flex;
   flex-direction: column;
+  align-items: center;
   justify-content: space-between;
   @media (width > 1168px) {
     height: 100%;
