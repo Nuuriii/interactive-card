@@ -47,8 +47,6 @@ export const InputWrapper = () => {
     isError === true ? setIsSubmit(false) : setIsSubmit(true);
   };
 
-  console.log(isSubmit);
-
   return (
     <Container>
       <Wrapper>

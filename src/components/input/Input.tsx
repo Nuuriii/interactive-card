@@ -131,7 +131,7 @@ export const Input = ({
 
     //console.log(`ini jika ${checkName() ? 'benar' : 'salah'}: ${has}`);
   };
-  console.log(errorName);
+
   return (
     <Wrapper>
       <Form onSubmit={handleSubmit}>
