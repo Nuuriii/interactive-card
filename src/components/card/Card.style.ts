@@ -9,7 +9,6 @@ export const Wrapper = styled.div`
   width: 100%;
   background-size: cover;
   height: 12rem;
-  background-color: gray;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -26,6 +25,7 @@ export const Wrapper = styled.div`
 
 export const CardContainer = styled.div`
   position: relative;
+  background-color: red;
 `;
 
 export const FrontCard = styled.div`
@@ -47,8 +47,11 @@ export const FrontCard = styled.div`
     right: -7rem;
   }
   @media (width >= 1000px) {
-    top: 15%;
-    left: 43%;
+    box-shadow:
+      rgba(14, 30, 37, 0.12) 0px 2px 4px 0px,
+      rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+    top: 3rem;
+    left: -2rem;
   }
 `;
 
@@ -97,7 +100,10 @@ export const BackCard = styled.div`
     right: -90rem;
   }
   @media (width >= 1000px) {
-    top: 45%;
+    top: 15rem;
+    box-shadow:
+      rgba(14, 30, 37, 0.12) 0px 2px 4px 0px,
+      rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
     left: 50%;
   }
 `;
