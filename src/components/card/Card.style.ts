@@ -5,21 +5,21 @@ import BgFrontCard from '../../assets/bg-card-front.png';
 import BgBackCard from '../../assets/bg-card-back.png';
 
 export const Wrapper = styled.div`
-  background-image: url(${BgCardMobile});
-  width: 100%;
-  background-size: cover;
   height: 12rem;
+  width: 100%;
+  margin-bottom: 10rem;
+  padding-bottom: 12rem;
   display: flex;
   align-items: center;
   justify-content: center;
+  background-image: url(${BgCardMobile});
+  background-size: cover;
   background-repeat: no-repeat;
-  margin-bottom: 10rem;
-  padding-bottom: 12rem;
   @media (width > 1168px) {
-    background-image: url(${BgDesktop});
     height: 100%;
     width: 30%;
     margin-bottom: 0;
+    background-image: url(${BgDesktop});
   }
 `;
 
@@ -29,29 +29,29 @@ export const CardContainer = styled.div`
 `;
 
 export const FrontCard = styled.div`
-  background-image: url(${BgFrontCard});
-  z-index: 1;
+  height: 10rem;
+  width: 19rem;
   padding: 1rem;
+  position: absolute;
+  top: 7rem;
+  right: -8rem;
+  z-index: 1;
   display: flex;
   justify-content: space-between;
   flex-direction: column;
+  background-image: url(${BgFrontCard});
   background-size: cover;
   background-repeat: no-repeat;
-  height: 10rem;
-  top: 7rem;
-  right: -8rem;
-  position: absolute;
-  width: 19rem;
   border-radius: 0.5rem;
   @media (548px <= width <= 1168px) {
     right: -7rem;
   }
   @media (width >= 1168px) {
+    top: 3rem;
+    left: -2rem;
     box-shadow:
       rgba(14, 30, 37, 0.12) 0px 2px 4px 0px,
       rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
-    top: 3rem;
-    left: -2rem;
   }
 `;
 
@@ -77,22 +77,21 @@ export const OtherInformation = styled.div`
 `;
 
 export const BackCard = styled.div`
-  background-image: url(${BgBackCard});
-  display: flex;
-  //align-items: center;
-  justify-content: right;
-  background-size: cover;
-  background-repeat: no-repeat;
   height: 10rem;
+  width: 19rem;
+  position: absolute;
   top: 1rem;
   left: -9rem;
-  position: absolute;
-  width: 19rem;
+  display: flex;
+  justify-content: right;
+  background-image: url(${BgBackCard});
+  background-size: cover;
+  background-repeat: no-repeat;
   border-radius: 0.5rem;
   p {
+    margin: 0.1rem 2rem 0 0;
     display: flex;
     align-items: center;
-    margin: 0.1rem 2rem 0 0;
     color: black;
   }
   @media (548px <= width <= 1168px) {
@@ -101,9 +100,9 @@ export const BackCard = styled.div`
   }
   @media (width >= 1168px) {
     top: 15rem;
+    left: 50%;
     box-shadow:
       rgba(14, 30, 37, 0.12) 0px 2px 4px 0px,
       rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
-    left: 50%;
   }
 `;
