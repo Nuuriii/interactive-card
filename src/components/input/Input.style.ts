@@ -2,12 +2,13 @@ import styled from 'styled-components';
 
 export const Wrapper = styled.div`
   width: 100%;
-  margin-bottom: 2rem;
+  margin-bottom: 8rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   @media (width > 1000px) {
     height: 100%;
+    margin-bottom: 0;
     width: 70%;
     justify-content: center;
   }
@@ -209,7 +210,7 @@ export const InputCvc = styled.input<{ $isError: boolean }>`
 `;
 export const Button = styled.button`
   height: 3rem;
-  margin: 3rem 0 2rem 0;
+  margin: 3rem 0 4rem 0;
   padding: 0.9rem 0;
   border: none;
   text-align: center;
